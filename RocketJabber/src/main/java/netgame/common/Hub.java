@@ -128,8 +128,9 @@ public class Hub {
      * behavior will often be overridden in subclasses.
      * @param playerID  The ID number of the player who sent the message.
      * @param message The message that was received from the player.
+     * @throws Exception 
      */
-    protected void messageReceived(int playerID, Object message) {
+    protected void messageReceived(int playerID, Object message) throws Exception {
         sendToAll(new ForwardedMessage(playerID,message));
     }
     
@@ -318,7 +319,7 @@ public class Hub {
     //------------------------- private implementation part ---------------------------------------
     
     
-    synchronized private void messageReceived(ConnectionToClient fromConnection, Object message) {
+    synchronized private void messageReceived(ConnectionToClient fromConnection, Object message) throws Exception {
               // Note: DisconnectMessage is handled in the ConnectionToClient class.
         int sender = fromConnection.getPlayer();
         messageReceived(sender,message);

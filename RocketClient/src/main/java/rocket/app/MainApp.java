@@ -102,6 +102,10 @@ public class MainApp extends Application {
 			Scene scene = new Scene(RocketMain);
 
 			primaryStage.setScene(scene);
+			primaryStage.setHeight(300);
+			primaryStage.setWidth(500);
+			primaryStage.centerOnScreen();
+			primaryStage.setResizable(false);
 
 			// Give the controller access to the main app.
 			rController = loader.getController();
