@@ -66,7 +66,7 @@ public class MainApp extends Application {
 		primaryStage.setWidth(bounds.getWidth());
 		primaryStage.setHeight(bounds.getHeight());
 		
-		this.primaryStage.setTitle("Rocket");
+		this.primaryStage.setTitle("Austin Abbruzzesi's Final Project");
 		this.primaryStage.setScene(scene);
 		this.primaryStage.show();
 		
@@ -102,7 +102,7 @@ public class MainApp extends Application {
 			Scene scene = new Scene(RocketMain);
 
 			primaryStage.setScene(scene);
-			primaryStage.setHeight(300);
+			primaryStage.setHeight(320);
 			primaryStage.setWidth(500);
 			primaryStage.centerOnScreen();
 			primaryStage.setResizable(false);

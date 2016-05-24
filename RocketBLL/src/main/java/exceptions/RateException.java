@@ -14,7 +14,7 @@ public class RateException extends Exception {
 		this.printStackTrace();
 		
 	}
-	//	TODO - RocketBLL RateException - RateDomainModel should be an attribute of RateException
+	//	TODONE - RocketBLL RateException - RateDomainModel should be an attribute of RateException
 	//	* Add RateRomainModel as an attribute
 	//	* Create a constructor, passing in RateDomainModel
 	//	* Create a getter (no setter, set value only in Constructor)

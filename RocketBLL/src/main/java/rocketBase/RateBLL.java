@@ -63,13 +63,13 @@ public class RateBLL {
 	    return bd.doubleValue();
 	}
 	
-	//TODO - RocketBLL RateBLL.getPayment 
+	//TODONE - RocketBLL RateBLL.getPayment 
 	//		how to use: 
 	//		https://poi.apache.org/apidocs/org/apache/poi/ss/formula/functions/FinanceLib.html
 	
 	public static double getPayment(double rate, double num_periods, double present_value, double future_value, boolean type)
 	{		
-		return FinanceLib.pmt(rate, num_periods, present_value, future_value, type);
+		return FinanceLib.pmt((rate/12/100), (num_periods*12), present_value, future_value, type);
 	}
 }
  

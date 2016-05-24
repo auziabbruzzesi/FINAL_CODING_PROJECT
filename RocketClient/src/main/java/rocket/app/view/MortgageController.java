@@ -1,5 +1,7 @@
 package rocket.app.view;
 
+import java.util.ArrayList;
+
 import eNums.eAction;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,6 +19,7 @@ import rocketCode.Action;
 import rocketData.LoanRequest;
 
 public class MortgageController {
+	
 
 	private MainApp mainApp;
 	
@@ -50,7 +53,7 @@ public class MortgageController {
 	private Button btnPayment;
 	@FXML
 	private Label lblMortgagePayment;
-	//	TODO - RocketClient.RocketMainController
+	//	TODONE - RocketClient.RocketMainController
 	
 	//	Create private instance variables for:
 	//		TextBox  - 	txtIncome
@@ -72,22 +75,25 @@ public class MortgageController {
 	}
 	
 	
-	//	TODO - RocketClient.RocketMainController
+	//	TODONE - RocketClient.RocketMainController
 	//			Call this when btnPayment is pressed, calculate the payment
 	@FXML
 	public void btnCalculatePayment(ActionEvent event)
 	{
+		
 		Object message = null;
-		//	TODO - RocketClient.RocketMainController
+		//	TODONE - RocketClient.RocketMainController
 		 
 		Action a = new Action(eAction.CalculatePayment);
 		LoanRequest lq = new LoanRequest();
+		
 		lq.setIncome(Double.parseDouble((txtIncome.getText())));
 		lq.setExpenses(Double.parseDouble(txtExpenses.getText()));
 		lq.setiTerm(cmbTerm.getValue());
 		lq.setiCreditScore(Integer.parseInt(txtCreditScore.getText()));
 		lq.setdAmount(Double.parseDouble(txtHouseCost.getText()));
 		lq.setiDownPayment(Integer.parseInt(txtDownPayment.getText()));
+		
 		//	TODONE - RocketClient.RocketMainController
 		//			set the loan request details...  rate, term, amount, credit score, downpayment
 		//			I've created you an instance of lq...  execute the setters in lq
@@ -97,9 +103,12 @@ public class MortgageController {
 		//	send lq as a message to RocketHub		
 		mainApp.messageSend(lq);
 	}
+
+	
 	
 	public void HandleLoanRequestDetails(LoanRequest lRequest)
-	{
+	{	
+		
 		lblMortgagePayment.setVisible(true);
 		if (!RateBLL.enoughMula(lRequest.getIncome(),lRequest.getExpenses(),lRequest.getdPayment())){
 			lblMortgagePayment.setText("Not enough Income!!!!");
@@ -109,13 +118,14 @@ public class MortgageController {
 			lblMortgagePayment.setText("Credit Score Too Low!!!!");
 			lblMortgagePayment.setTextFill(Color.RED);
 		}
+		
 		else{
 	
 		
 		lblMortgagePayment.setText("$"+Double.toString(RateBLL.round(Math.abs(lRequest.getdPayment()),2)));
 		lblMortgagePayment.setTextFill(Color.GREEN);
 		System.out.print(lRequest.getdPayment());
-		//	TODO - RocketClient.HandleLoanRequestDetails
+		//	TODONE - RocketClient.HandleLoanRequestDetails
 		//			lRequest is an instance of LoanRequest.
 		//			after it's returned back from the server, the payment (dPayment)
 		//			should be calculated.

@@ -36,11 +36,11 @@ public class RocketHub extends Hub {
 				e.printStackTrace();
 			}
 			
-			lq.setdPayment(Math.abs(RateBLL.getPayment((lq.getdRate()/12/100), lq.getiTerm()*12,(lq.getdAmount()-lq.getiDownPayment()),0, true)));
+			lq.setdPayment(Math.abs(RateBLL.getPayment((lq.getdRate()), lq.getiTerm(),(lq.getdAmount()-lq.getiDownPayment()),0, false)));
 			System.out.println("set the dPayment!"+"\n"+"-----------------------------------------------------------");
 			
 			
-			//	TODO - RocketHub.messageReceived
+			//	TODONE - RocketHub.messageReceived
 
 			//	You will have to:
 			//	Determine the rate with the given credit score (call RateBLL.getRate)

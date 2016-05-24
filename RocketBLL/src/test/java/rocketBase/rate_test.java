@@ -36,7 +36,8 @@ public class rate_test {
 	} 
 	@Test
 	public void getPaymentTest(){
-		System.out.print(RateBLL.getPayment(.04, 360, 300000, 0, false));
+		System.out.print(RateBLL.getPayment(4, 30, 300000, 0, false));
+		assertEquals(Math.abs(RateBLL.getPayment(4, 30, 300000, 0, false)),1432.245,1 );
 	}
 		 
 		 
